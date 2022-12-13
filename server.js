@@ -25,7 +25,7 @@ app.use("/payment",paymentRouter)
 
 mongoose.set("strictQuery", false);
 //connecting mongodb
-mongoose.connect(process.env.DB_LINK,{useUnifiedTopology:true,useNewUrlParser:true})
+mongoose.connect("mongodb+srv://gaurav:gaurav@cluster0.tdskhzp.mongodb.net/test",{useUnifiedTopology:true,useNewUrlParser:true})
 .then(()=>{
     console.log('Database connection successfull.')
 }).catch((err)=>{
@@ -38,5 +38,5 @@ const server = http.createServer(app);
 server.listen(port);
 /** Event listener for HTTP server "listening" event. */
 server.on("listening", () => {
-  console.log(`Listening on port:: http://localhost:${port}/`);
+  console.log(`Listening on port::${port}/`);
 });
