@@ -17,11 +17,13 @@ const port = process.env.PORT||8000
 app.use(CORS())
 app.use(express.json())
 
+
+app.use("/user",userRouter)
+app.use("/payment",paymentRouter)
+
 app.use('/',async(req,res)=>{
   return res.json({"welcome to flex app yoga":"flex"})
 })
-app.use("/user",userRouter)
-app.use("/payment",paymentRouter)
 
 mongoose.set("strictQuery", false);
 //connecting mongodb
