@@ -23,6 +23,7 @@ app.use('/',async(req,res)=>{
 app.use("/user",userRouter)
 app.use("/payment",paymentRouter)
 
+mongoose.set("strictQuery", false);
 //connecting mongodb
 mongoose.connect(process.env.DB_LINK,{useUnifiedTopology:true,useNewUrlParser:true})
 .then(()=>{
